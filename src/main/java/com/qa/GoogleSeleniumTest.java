@@ -17,6 +17,7 @@ public class GoogleSeleniumTest {
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\IdeaProjects\\seleniumtesting\\src\\main\\java\\resources\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
     }
 
 
@@ -29,7 +30,7 @@ public class GoogleSeleniumTest {
 
 
     @Test
-    public void searchTest2() throws InterruptedException {
+    public void searchTest() throws InterruptedException {
         driver.get("http://google.com");
         Thread.sleep(2000);
         WebElement searchField = driver.findElement(By.name("q"));
@@ -48,6 +49,31 @@ public class GoogleSeleniumTest {
 //        actions.click();
 //        actions.perform();
     }
+
+    @Test
+    public void seleniumeasyTest() throws InterruptedException {
+        driver.get("https://www.seleniumeasy.com/test/basic-first-form-demo.html");
+        WebElement inputField = driver.findElement(By.id("user-message"));
+        while(!inputField.isDisplayed()){
+            Thread.sleep(100);
+        }
+        inputField.sendKeys("message");
+        WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"get-input\"]/button"));
+        Thread.sleep(1000);
+        submitButton.click();
+        WebElement firstNum = driver.findElementById("sum1");
+        WebElement secondNum = driver.findElementById("sum2");
+
+        firstNum.sendKeys("4");
+        secondNum.sendKeys("4");
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//*[@id=\"gettotal\"]/button")).click();
+        Thread.sleep(1000);
+    }
+
+
+
 }
 
 
