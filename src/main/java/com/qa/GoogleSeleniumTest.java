@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import static org.junit.Assert.assertTrue;
 
@@ -41,6 +42,11 @@ public class GoogleSeleniumTest {
         WebElement linkToBiggerPicture = driver.findElementByLinkText("Images for funny cat");
         linkToBiggerPicture.click();
         Thread.sleep(5000);
+//        WebElement element = driver.findElement(By.id("smb"));
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(element);
+//        actions.click();
+//        actions.perform();
     }
 }
 
